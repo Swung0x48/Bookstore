@@ -3,3 +3,15 @@
 //
 
 #include "member.h"
+
+void member::addBook(book newBook)
+{
+
+}
+
+
+void member::updateSubtotal()
+{
+
+}
+

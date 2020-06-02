@@ -13,14 +13,29 @@ private:
     string _name;
     string _author;
     string _pubHouse;
+    string _isbn;
     double _price;
 public:
-    book(string name, string author, string pubHouse, double price):
-        _name(name), _author(author), _pubHouse(pubHouse), _price(price) {}
+    book(
+            string name,
+            string author,
+            string pubHouse,
+            string Isbn,
+            double price
+         ):
+            _name(name),
+            _author(author),
+            _pubHouse(pubHouse),
+            _isbn(Isbn),
+            _price(price) {}
+
     string getName() { return _name; }
     string getAuthor() { return _author; }
     string getPubHouse() { return _pubHouse; }
+    string getIsbn() { return _isbn; }
     double getPrice() { return _price; }
+
+
 };
 
 

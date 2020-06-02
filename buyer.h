@@ -16,7 +16,7 @@ protected:
     double _subtotal;
 public:
     buyer();
-    buyer(string name, int Id = 0, string address = "", double subtotal = 0.0);
+    buyer(string name, int Id, string address, double subtotal);
     string getName() { return _name; }
     string getAddress() { return _address; };
     double getSubtotal() { return _subtotal; };

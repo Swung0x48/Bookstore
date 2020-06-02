@@ -5,19 +5,24 @@
 #ifndef BOOKSTORE_MEMBER_H
 #define BOOKSTORE_MEMBER_H
 
+#include <map>
 #include "buyer.h"
+#include "book.h"
 
 class member: public buyer
 {
-    int _type;      // member type, 0 for ordinary member, 1 for honored_guests
-    double _discountRate;
+    int _type;              // member type, 0 for ordinary member, 1 for honored_guests
+    double _discountRate;   // ranging from 0 to 1.
+    map<book, int> _bookList;
 public:
-    member(int type = 0, double discountRate = 1, string name = "", int Id = 0, string address = "", double subtotal = 0.0)
+    explicit member(int type, double discountRate, string name, int Id, string address, double subtotal)
         : buyer(name, Id, address, subtotal), _type(type), _discountRate(discountRate) { }
-    virtual void setSubtotal(double subtotal)
-    {
-        _subtotal = subtotal;
-    }
+    virtual map<book, int> getBookList() { return _bookList; }
+    virtual void addBook(book newBook);
+    virtual void updateSubtotal();
+
+
+
 };
 
 
