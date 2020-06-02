@@ -15,13 +15,20 @@ class member: public buyer
     double _discountRate;   // ranging from 0 to 1.
     map<book, int> _bookList;
 public:
-    explicit member(int type, double discountRate, string name, int Id, string address, double subtotal)
-        : buyer(name, Id, address, subtotal), _type(type), _discountRate(discountRate) { }
+    member(
+            int type,
+            double discountRate,
+            string name,
+            int Id,
+            string address,
+            double subtotal
+           ):
+            buyer(name, Id, address, subtotal),
+            _type(type),
+            _discountRate(discountRate) {}
     virtual map<book, int> getBookList() { return _bookList; }
     virtual void addBook(book newBook);
     virtual void updateSubtotal();
-
-
 
 };
 
