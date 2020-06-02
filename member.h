@@ -13,23 +13,23 @@ class member: public buyer
 {
     int _type;              // member type, 0 for ordinary member, 1 for honored_guests
     double _discountRate;   // ranging from 0 to 1.
-    map<book, int> _bookList;
 public:
     member(
             int type,
             double discountRate,
             string name,
             int Id,
-            string address,
-            double subtotal
+            string address
            ):
-            buyer(name, Id, address, subtotal),
+            buyer(name, Id, address),
             _type(type),
-            _discountRate(discountRate) {}
-    virtual map<book, int> getBookList() { return _bookList; }
-    virtual void addBook(book newBook);
-    virtual void updateSubtotal();
+            _discountRate(discountRate) {} // TODO: Implement ID generator
 
+    int getType() const { return _type; }
+    double getDiscountRate() const { return _discountRate; }
+//    string getName() { return _name; }
+//    int getId() { return _id; }
+//    string getAddress() { return _address; }
 };
 
 
