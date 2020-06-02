@@ -21,7 +21,7 @@ public:
     string getAddress() { return _address; };
     double getSubtotal() { return _subtotal; };
     int getId() { return _id; };
-    virtual void setSubtotal() = 0;
+    virtual void setSubtotal(double subtotal) = 0;
 };
 
 
