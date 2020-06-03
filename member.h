@@ -36,28 +36,6 @@ public:
     int getId() { return _id; }
 //    string getAddress() { return _address; }
 
-    string toString(int para)   // 0 to stdout, 1 to file
-    {
-        if (para == 1)
-        {
-            return
-                Util::to_string(_type) + " " +
-                Util::to_string(_discountRate) + " " +
-                _name + " " +
-                _address + " " +
-                Util::to_string(_id) + "\n";
-        }
-        else if (para == 0)
-        {
-            return
-                    "ID: " + Util::to_string(_id) + "\n" +
-                    Util::to_string((_type == 1) ? "贵宾" : "顾客") + " " + _name + "\n" +
-                    "折扣率：" + Util::to_string(_discountRate) + "\n" +
-                    "住址：" + _address + "\n";
-        }
-        return std::string();
-    }
-
 };
 
 
