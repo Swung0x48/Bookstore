@@ -2,14 +2,14 @@
 // Created by Swung 0x48 on 2020/6/2.
 //
 
-#ifndef BOOKSTORE_RANDOMGENERATOR_H
-#define BOOKSTORE_RANDOMGENERATOR_H
+#ifndef BOOKSTORE_RANDGEN_H
+#define BOOKSTORE_RANDGEN_H
 
 #include <vector>
 #include <random>
 using namespace std;
 
-class randomGenerator
+class randGen
 {
 private:
     static default_random_engine randEngine;
@@ -18,4 +18,4 @@ public:
 };
 
 
-#endif //BOOKSTORE_RANDOMGENERATOR_H
+#endif //BOOKSTORE_RANDGEN_H
