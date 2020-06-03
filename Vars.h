@@ -15,6 +15,7 @@ public:
     static set<order> orderList;
     static set<member> memberList;
     static set<book> bookList;
+    static int CurrentUser;
 };
 
 

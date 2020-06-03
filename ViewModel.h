@@ -15,6 +15,9 @@ public:
     static string translate(bool HumanReadable, member& Member);
     static string translate(bool HumanReadable, order& Order);
     static string translate(bool HumanReadable, book& Book);
+
+    static int Login();
+    static int MainMenu();
 };
 
 

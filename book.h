@@ -31,10 +31,10 @@ public:
             _isbn(Isbn),
             _price(price) {}
 
-    string getName() { return _name; }
-    string getAuthor() { return _author; }
-    string getPubHouse() { return _pubHouse; }
-    string getIsbn() { return _isbn; }
+    string getName() const { return _name; }
+    string getAuthor() const { return _author; }
+    string getPubHouse() const { return _pubHouse; }
+    string getIsbn() const { return _isbn; }
     double getPrice() const { return _price; }
 
     bool operator< (const book& rhs) const  // overload operator< to make std::map happy.
@@ -42,22 +42,22 @@ public:
         return this->_name < rhs._name;
     }
 
-    string toString(int para)   // 0 to stdout, 1 to file
-    {
-        if (para == 1)
-        {
-            return _name + " " + _author + " " + _pubHouse + " " + _isbn + " " + Util::to_string(_price) + " " + "\n";
-        }
-        else if (para == 0)
-        {
-            return
-                "书名: " + _name + "\n" +
-                "作者: " + _author + "\n" +
-                "出版社： " + _pubHouse + "\n" +
-                "ISBN: " + _isbn + "\n" +
-                "价格： " + Util::to_string(_price) + "\n";
-        }
-    }
+//    string toString(int para)   // 0 to stdout, 1 to file
+//    {
+//        if (para == 1)
+//        {
+//            return _name + " " + _author + " " + _pubHouse + " " + _isbn + " " + Util::to_string(_price) + " " + "\n";
+//        }
+//        else if (para == 0)
+//        {
+//            return
+//                "书名: " + _name + "\n" +
+//                "作者: " + _author + "\n" +
+//                "出版社： " + _pubHouse + "\n" +
+//                "ISBN: " + _isbn + "\n" +
+//                "价格： " + Util::to_string(_price) + "\n";
+//        }
+//    }
 };
 
 

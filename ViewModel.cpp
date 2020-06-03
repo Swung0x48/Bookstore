@@ -3,6 +3,10 @@
 //
 
 #include "ViewModel.h"
+#include "Vars.h"
+#include <iostream>
+using namespace std;
+
 
 string ViewModel::translate(bool HumanReadable, member &Member)
 {
@@ -65,3 +69,41 @@ string ViewModel::translate(bool HumanReadable, book &Book) {
         // TODO: Implement this.
         }
 }
+
+
+int ViewModel::Login()
+{
+    int ret;
+    cout << "欢迎来到书店！" << endl;
+    cout << "请输入你的账号： " << endl;
+    cin >> ret;
+    for (auto member: Vars::memberList)
+    {
+        if (member.getId() == ret)
+        {
+            cout << "欢迎，" << member.getName() << endl;
+            return ret;
+        }
+    }
+
+    cout << "输入的账号不存在。请注册一个新账号。" << endl;
+    cout << "输入你的姓名:" << endl;
+    string name;
+    cin >> name;
+    cout << "输入账号类型(0, 普通用户/1, 会员)，折扣率：" << endl;
+    int type; double discountRate;
+    cin >> type >> discountRate;
+    cout << "请输入地址：" << endl;
+    string address;
+    cin >> address;
+    member newMember(type, discountRate, name, address);
+    Vars::memberList.insert(newMember);
+    return newMember.getId();
+}
+
+int ViewModel::MainMenu()
+{
+    cout << "接下来要做什么？" << endl;
+    // TODO: Implement this
+}
+
