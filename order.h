@@ -19,7 +19,9 @@ public:
     order(member& buyer, int orderId = randGen::getRandom()) : _buyer(buyer), _orderId(orderId) {}
     int getOrderId() { return _orderId; }
     member& getBuyer() { return _buyer; }
+    map<book, int>& getOrderList() { return _orderList; }
     double getSubtotal();
+    int getBookCount();
     void addItem(const book& newBook, const int& amount = 1);
 };
 

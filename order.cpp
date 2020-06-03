@@ -24,3 +24,12 @@ void order::addItem(const book &newBook, const int &amount)
     _orderList[newBook] += amount;
 
 }
+
+int order::getBookCount() {
+    int ret = 0;
+    for (auto item: _orderList)
+    {
+        ret += item.second;
+    }
+    return ret;
+}
