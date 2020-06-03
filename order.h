@@ -7,17 +7,20 @@
 #include <vector>
 #include "book.h"
 #include "member.h"
+#include "randGen.h"
 
 class order
 {
 private:
     int _orderId;
     member& _buyer;
-    vector<book> _orderList;
+    map<book, int> _orderList;  // book, count: int
 public:
-
+    order(member& buyer, int orderId = randGen::getRandom()) : _buyer(buyer), _orderId(orderId) {}
     int getOrderId() { return _orderId; }
-
+    member& getBuyer() { return _buyer; }
+    double getSubtotal();
+    void addItem(const book& newBook, const int& amount = 1);
 };
 
 

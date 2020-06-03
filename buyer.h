@@ -11,17 +11,12 @@ class buyer
 {
 protected:
     string _name;
-    int _id;
     string _address;
-    double _subtotal;
 public:
-    buyer();
-    buyer(string name, int Id, string address, double subtotal);
+    buyer(string name, string address, int id)
+        : _name(name), _address(address) {}
     string getName() { return _name; }
     string getAddress() { return _address; };
-    double getSubtotal() { return _subtotal; };
-    int getId() { return _id; };
-    virtual void setSubtotal(double subtotal) = 0;
 };
 
 

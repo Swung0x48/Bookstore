@@ -3,4 +3,4 @@ project(Bookstore)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Bookstore main.cpp buyer.cpp buyer.h member.cpp member.h book.cpp book.h Vars.cpp Vars.h order.cpp order.h)
+add_executable(Bookstore main.cpp buyer.cpp buyer.h member.cpp member.h book.cpp book.h randGen.cpp randGen.h order.cpp order.h Util.cpp Util.h ViewModel.cpp ViewModel.h)
