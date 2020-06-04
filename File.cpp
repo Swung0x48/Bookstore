@@ -5,6 +5,8 @@
 #include "File.h"
 #include "Vars.h"
 #include "ViewModel.h"
+#include "book.h"
+#include "member.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -18,7 +20,24 @@ string File::bookListPath = "book.txt";
 
 void File::openMemberList()
 {
-
+    ifs.open(memberListPath, ios::in);
+    string str;
+    while (getline(ifs, str))
+    {
+        if (!str.empty())
+        {
+            istringstream ss(str);  // Construct a string stream from line.
+            int type;
+            double discountRate;
+            string name;
+            string address;
+            int id;
+            ss >> type >> discountRate >> name >> address >> id;
+            member newMember(type, name, address, id);
+            Vars::memberList.insert(newMember);
+        }
+    }
+    ifs.close();
 }
 
 void File::saveReceipt()
@@ -35,7 +54,24 @@ void File::saveReceipt()
 
 void File::openBookList()
 {
-
+    ifs.open(bookListPath, ios::in);
+    string str;
+    while (getline(ifs, str))
+    {
+        if (!str.empty())
+        {
+            istringstream ss(str);  // Construct a string stream from line.
+            string name;
+            string author;
+            string pubHouse;
+            string isbn;
+            double price = 0;
+            ss >> name >> author >> pubHouse >> isbn >> price;
+            book newBook(name, author, pubHouse, isbn, price);
+            Vars::bookList.insert(newBook);
+        }
+    }
+    ifs.close();
 }
 
 void File::saveMemberList()
@@ -45,6 +81,7 @@ void File::saveMemberList()
     {
         ofs << ViewModel::translate(false, member) << endl;
     }
+//    ofs << 0 << endl;
     ofs.close();
 }
 
@@ -55,5 +92,6 @@ void File::saveBookList()
     {
         ofs << ViewModel::translate(false, book) << endl;
     }
+//    ofs << 0 << endl;
     ofs.close();
 }

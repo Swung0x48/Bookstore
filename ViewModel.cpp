@@ -78,7 +78,7 @@ string ViewModel::translate(bool HumanReadable, book &Book) {
 }
 
 
-int ViewModel::Login()
+void ViewModel::Login()
 {
     int ret;
     cout << "欢迎来到书店！" << endl;
@@ -89,7 +89,8 @@ int ViewModel::Login()
         if (member.getId() == ret)
         {
             cout << "欢迎，" << member.getName() << endl;
-            return ret;
+            Vars::CurrentUser = member.getId();
+            return;
         }
     }
 
@@ -105,12 +106,18 @@ int ViewModel::Login()
     cin >> address;
     member newMember(type, name, address);
     Vars::memberList.insert(newMember);
-    return newMember.getId();
+    Vars::CurrentUser = newMember.getId();
 }
 
 int ViewModel::MainMenu()
 {
     cout << "接下来要做什么？" << endl;
+    cout << endl;
+    cout << "1. 显示订单" << endl;
+    cout << "2. 显示当前用户信息" << endl;
+    cout << "3. 显示所有图书" << endl;
+    cout << "4. 立即下单" << endl;
+
     // TODO: Implement this
 }
 
