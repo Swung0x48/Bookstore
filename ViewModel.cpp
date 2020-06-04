@@ -10,7 +10,7 @@ using namespace std;
 
 string ViewModel::translate(bool HumanReadable, member &Member)
 {
-    if (HumanReadable)
+    if (!HumanReadable)
     {
         return
                 Util::to_string(Member.getType()) + " " +
@@ -46,7 +46,7 @@ string ViewModel::translate(bool HumanReadable, order &Order)
               const int& quantity = item.second;
               ret += Book.getName() + " x" + Util::to_string(quantity) + " " + Util::to_string(Book.getPrice()) + " " + Util::to_string(Book.getPrice() * quantity) + "\n";
           }
-          ret += "共" + Util::to_string(Order.getBookCount()) + "本书\n小计： " + Util::to_string(Order.getSubtotal()) + "元";
+          ret += "\n共" + Util::to_string(Order.getBookCount()) + "本书\n小计： " + Util::to_string(Order.getSubtotal() * buyer.getDiscountRate()) + "元";
 
           return ret;
     }
@@ -64,10 +64,17 @@ string ViewModel::translate(bool HumanReadable, book &Book) {
                 "作者: " + Book.getAuthor() + "\n" +
                 "出版社： " + Book.getPubHouse() + "\n" +
                 "ISBN: " + Book.getIsbn() + "\n" +
-                "价格： " + Util::to_string(Book.getPrice()) + "\n";
-    } else {
-        // TODO: Implement this.
-        }
+                "价格： " + Util::to_string(Book.getPrice()) + "\n\n";
+    }
+    else
+    {
+        return
+                Book.getName() + " " +
+                Book.getAuthor() + " " +
+                Book.getPubHouse() + " " +
+                Book.getIsbn() + " " +
+                Util::to_string(Book.getPrice());
+    }
 }
 
 
@@ -90,13 +97,13 @@ int ViewModel::Login()
     cout << "输入你的姓名:" << endl;
     string name;
     cin >> name;
-    cout << "输入账号类型(0, 普通用户/1, 会员)，折扣率：" << endl;
-    int type; double discountRate;
-    cin >> type >> discountRate;
+    cout << "输入账号类型(0, 普通用户/1, 会员)" << endl;
+    int type;
+    cin >> type;
     cout << "请输入地址：" << endl;
     string address;
     cin >> address;
-    member newMember(type, discountRate, name, address);
+    member newMember(type, name, address);
     Vars::memberList.insert(newMember);
     return newMember.getId();
 }

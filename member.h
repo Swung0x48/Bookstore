@@ -19,22 +19,20 @@ class member: public buyer
 public:
     member(
             int type,
-            double discountRate,
             string name,
             string address,
-            int id = randGen::getRandom()) :
-
-            buyer(name, address, id),
-            _type(type),
-            _discountRate(discountRate),
-            _id(id)
-            {}
+            int id = randGen::getRandom());
 
     int getType() const { return _type; }
     double getDiscountRate() const { return _discountRate; }
 //    string getName() { return _name; }
     int getId() { return _id; }
 //    string getAddress() { return _address; }
+
+    bool operator< (const member& rhs) const  // overload operator< to make std::map happy.
+    {
+        return this->_name < rhs._name;
+    }
 
 };
 
