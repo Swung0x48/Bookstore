@@ -31,12 +31,46 @@ int main()
     File::openMemberList();
 
     ViewModel::Login();
-    int opt = ViewModel::MainMenu();
-    switch(opt)
-    {
 
+    while (true)
+    {
+        switch (ViewModel::MainMenu())
+        {
+            case 1:
+                if (Vars::orderList.empty())
+                {
+                    cout << "当前购物车内空空如也。" << endl;
+                }
+                else
+                {
+                    for (auto order: Vars::orderList)
+                    {
+                        cout << ViewModel::translate(true, order) << endl;
+                    }
+                }
+                break;
+            case 2:
+                cout << ViewModel::translate(true, Vars::CurrentUser) << endl;
+                break;
+            case 3:
+
+                for (int i = 0; auto book: Vars::bookList)
+                {
+                    cout << ++ i << ":" << endl;
+                    cout << ViewModel::translate(true, book);
+                }
+                break;
+            case 4:
+                for (auto order: Vars::orderList)
+                {
+                    cout << ViewModel::translate(true, order) << endl;
+                }
+                goto Exit;
+
+        }
     }
 
+    Exit:
     File::saveReceipt();
     File::saveBookList();
     File::saveMemberList();
