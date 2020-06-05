@@ -42,22 +42,6 @@ public:
         return this->_name < rhs._name;
     }
 
-//    string toString(int para)   // 0 to stdout, 1 to file
-//    {
-//        if (para == 1)
-//        {
-//            return _name + " " + _author + " " + _pubHouse + " " + _isbn + " " + Util::to_string(_price) + " " + "\n";
-//        }
-//        else if (para == 0)
-//        {
-//            return
-//                "书名: " + _name + "\n" +
-//                "作者: " + _author + "\n" +
-//                "出版社： " + _pubHouse + "\n" +
-//                "ISBN: " + _isbn + "\n" +
-//                "价格： " + Util::to_string(_price) + "\n";
-//        }
-//    }
 };
 
 

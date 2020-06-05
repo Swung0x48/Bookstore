@@ -4,7 +4,7 @@
 
 #include "Vars.h"
 
-int Vars::CurrentUser = 0;
+member Vars::CurrentUser(0 , "", "", -1);
 
 vector<order> Vars::orderList;
 set<member> Vars::memberList;

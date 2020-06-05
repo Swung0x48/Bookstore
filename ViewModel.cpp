@@ -89,7 +89,7 @@ void ViewModel::Login()
         if (member.getId() == ret)
         {
             cout << "欢迎，" << member.getName() << endl;
-            Vars::CurrentUser = member.getId();
+            Vars::CurrentUser = member;
             return;
         }
     }
@@ -106,7 +106,7 @@ void ViewModel::Login()
     cin >> address;
     member newMember(type, name, address);
     Vars::memberList.insert(newMember);
-    Vars::CurrentUser = newMember.getId();
+    Vars::CurrentUser = newMember;
 }
 
 int ViewModel::MainMenu()
@@ -115,9 +115,11 @@ int ViewModel::MainMenu()
     cout << endl;
     cout << "1. 显示订单" << endl;
     cout << "2. 显示当前用户信息" << endl;
-    cout << "3. 显示所有图书" << endl;
+    cout << "3. 浏览图书" << endl;
     cout << "4. 立即下单" << endl;
-
+    int ret;
+    cin >> ret;
+    return ret;
     // TODO: Implement this
 }
 
