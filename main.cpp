@@ -78,6 +78,9 @@ int main()
                     cout << ViewModel::translate(true, order) << endl;
                 }
                 goto Exit;
+            default:
+                cout << "未知命令。请检查输入" << endl;
+                break;
 
         }
     }

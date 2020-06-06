@@ -80,7 +80,7 @@ void File::saveMemberList()
     ofs.open(memberListPath, ios::out | ios::trunc);
     for (auto member: Vars::memberList)
     {
-        ofs << ViewModel::translate(false, member) << endl;
+        ofs << ViewModel::translate(false, member);
     }
 //    ofs << 0 << endl;
     ofs.close();
