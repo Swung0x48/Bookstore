@@ -72,6 +72,7 @@ void File::openBookList()
         }
     }
     ifs.close();
+    copy(Vars::bookList.begin(), Vars::bookList.end(), back_inserter(Vars::bookListVector));
 }
 
 void File::saveMemberList()

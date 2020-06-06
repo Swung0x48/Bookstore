@@ -19,11 +19,11 @@ private:
     double _price;
 public:
     book(
-            const string& name,
-            const string& author,
-            const string& pubHouse,
-            const string& Isbn,
-            const double& price
+            const string name,
+            const string author,
+            const string pubHouse,
+            const string Isbn,
+            const double price
          ):
             _name(name),
             _author(author),

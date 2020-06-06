@@ -9,3 +9,4 @@ member Vars::CurrentUser(0 , "", "", -1);
 vector<order> Vars::orderList;
 set<member> Vars::memberList;
 set<book> Vars::bookList;
+vector<book> Vars::bookListVector;

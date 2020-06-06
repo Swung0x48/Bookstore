@@ -32,6 +32,8 @@ int main()
 
     ViewModel::Login();
 
+    Vars::orderList.emplace_back(Vars::CurrentUser);
+
     while (true)
     {
         switch (ViewModel::MainMenu())
@@ -53,11 +55,21 @@ int main()
                 cout << ViewModel::translate(true, Vars::CurrentUser) << endl;
                 break;
             case 3:
-
                 for (int i = 0; auto book: Vars::bookList)
                 {
                     cout << ++ i << ":" << endl;
                     cout << ViewModel::translate(true, book);
+                }
+                cout << "请输入想购买的书序号和数量" << endl;
+                int bookNum, quantity;
+                cin >> bookNum >> quantity;
+                if (bookNum - 1 <= Vars::bookListVector.size() && bookNum > 0)
+                {
+                    Vars::orderList[0].addItem(Vars::bookListVector[bookNum - 1], quantity);
+                }
+                else
+                {
+                    cout << "您的输入有误，请检查。" << endl;
                 }
                 break;
             case 4:

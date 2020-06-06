@@ -29,7 +29,7 @@ string ViewModel::translate(bool HumanReadable, member &Member)
     }
 }
 
-string ViewModel::translate(bool HumanReadable, order &Order)
+string ViewModel::translate(bool HumanReadable, order& Order)
 {
     member buyer = Order.getBuyer();
     auto orderList = Order.getOrderList();
@@ -120,6 +120,5 @@ int ViewModel::MainMenu()
     int ret;
     cin >> ret;
     return ret;
-    // TODO: Implement this
 }
 

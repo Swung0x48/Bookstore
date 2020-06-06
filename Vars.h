@@ -15,6 +15,7 @@ public:
     static vector<order> orderList;
     static set<member> memberList;
     static set<book> bookList;
+    static vector<book> bookListVector;
     static member CurrentUser;
 
 
