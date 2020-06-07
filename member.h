@@ -33,7 +33,6 @@ public:
     {
         return this->_id < rhs._id;
     }
-
 };
 
 

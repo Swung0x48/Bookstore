@@ -41,7 +41,6 @@ public:
     {
         return this->_isbn < rhs._isbn;
     }
-
 };
 
 

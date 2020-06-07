@@ -22,7 +22,6 @@ void order::addItem(const book &newBook, const int &amount)
 //    else
 //    {
     _orderList[newBook] += amount;
-
 }
 
 int order::getBookCount() {

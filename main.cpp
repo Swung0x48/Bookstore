@@ -81,7 +81,6 @@ int main()
             default:
                 cout << "未知命令。请检查输入" << endl;
                 break;
-
         }
     }
 
