@@ -16,36 +16,6 @@ public:
         return string(buf);
     }
 
-    static string to_string(unsigned val) {
-        char buf[20];
-        sprintf(buf, "%u", val);
-        return string(buf);
-    }
-
-    static string to_string(long val) {
-        char buf[20];
-        sprintf(buf, "%ld", val);
-        return string(buf);
-    }
-
-    static string to_string(unsigned long val) {
-        char buf[20];
-        sprintf(buf, "%lu", val);
-        return string(buf);
-    }
-
-    static string to_string(float val) {
-        char buf[200];
-        sprintf(buf, "%.2f", val);
-        return string(buf);
-    }
-
-    static string to_string(long double val) {
-        char buf[20000];
-        sprintf(buf, "%.2Lf", val);
-        return string(buf);
-    }
-
     static string to_string(double val) {
         char buf[2000];
         sprintf(buf, "%.2f", val);

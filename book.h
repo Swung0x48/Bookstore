@@ -39,7 +39,7 @@ public:
 
     bool operator< (const book& rhs) const  // overload operator< to make std::map happy.
     {
-        return this->_name < rhs._name;
+        return this->_isbn < rhs._isbn;
     }
 
 };

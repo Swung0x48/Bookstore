@@ -63,7 +63,7 @@ int main()
                 cout << "请输入想购买的书序号和数量" << endl;
                 int bookNum, quantity;
                 cin >> bookNum >> quantity;
-                if (bookNum - 1 <= Vars::bookListVector.size() && bookNum > 0)
+                if (bookNum <= Vars::bookListVector.size() && bookNum > 0)
                 {
                     Vars::orderList[0].addItem(Vars::bookListVector[bookNum - 1], quantity);
                 }
