@@ -52,9 +52,8 @@ string Presenter::translate(bool HumanReadable, order& Order)
     }
     else
     {
-
+        return "";
     }
-
 }
 
 string Presenter::translate(bool HumanReadable, book &Book) {
