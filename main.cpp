@@ -1,7 +1,7 @@
 #include <iostream>
 #include "member.h"
 #include "order.h"
-#include "ViewModel.h"
+#include "Presenter.h"
 #include "Vars.h"
 #include "File.h"
 using namespace std;
@@ -25,18 +25,18 @@ int main()
 //
 //    cout << o.getBuyer().getName() << endl;
 //    cout << o.getSubtotal() << endl;
-//    cout << ViewModel::translate(true, o) << endl;
+//    cout << Presenter::translate(true, o) << endl;
 
     File::openBookList();
     File::openMemberList();
 
-    ViewModel::Login();
+    Presenter::Login();
 
     Vars::orderList.emplace_back(Vars::CurrentUser);
 
     while (true)
     {
-        switch (ViewModel::MainMenu())
+        switch (Presenter::MainMenu())
         {
             case 1:
                 if (Vars::orderList.empty())
@@ -47,18 +47,18 @@ int main()
                 {
                     for (auto order: Vars::orderList)
                     {
-                        cout << ViewModel::translate(true, order) << endl;
+                        cout << Presenter::translate(true, order) << endl;
                     }
                 }
                 break;
             case 2:
-                cout << ViewModel::translate(true, Vars::CurrentUser) << endl;
+                cout << Presenter::translate(true, Vars::CurrentUser) << endl;
                 break;
             case 3:
                 for (int i = 0; auto book: Vars::bookList)
                 {
                     cout << ++ i << ":" << endl;
-                    cout << ViewModel::translate(true, book);
+                    cout << Presenter::translate(true, book);
                 }
                 cout << "请输入想购买的书序号和数量" << endl;
                 int bookNum, quantity;
@@ -75,7 +75,7 @@ int main()
             case 4:
                 for (auto order: Vars::orderList)
                 {
-                    cout << ViewModel::translate(true, order) << endl;
+                    cout << Presenter::translate(true, order) << endl;
                 }
                 goto Exit;
             default:

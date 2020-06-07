@@ -2,13 +2,13 @@
 // Created by Swung 0x48 on 2020/6/3.
 //
 
-#include "ViewModel.h"
+#include "Presenter.h"
 #include "Vars.h"
 #include <iostream>
 using namespace std;
 
 
-string ViewModel::translate(bool HumanReadable, member &Member)
+string Presenter::translate(bool HumanReadable, member &Member)
 {
     if (!HumanReadable)
     {
@@ -29,7 +29,7 @@ string ViewModel::translate(bool HumanReadable, member &Member)
     }
 }
 
-string ViewModel::translate(bool HumanReadable, order& Order)
+string Presenter::translate(bool HumanReadable, order& Order)
 {
     member buyer = Order.getBuyer();
     auto orderList = Order.getOrderList();
@@ -57,7 +57,7 @@ string ViewModel::translate(bool HumanReadable, order& Order)
 
 }
 
-string ViewModel::translate(bool HumanReadable, book &Book) {
+string Presenter::translate(bool HumanReadable, book &Book) {
     if (HumanReadable) {
         return
                 "书名: " + Book.getName() + "\n" +
@@ -78,7 +78,7 @@ string ViewModel::translate(bool HumanReadable, book &Book) {
 }
 
 
-void ViewModel::Login()
+void Presenter::Login()
 {
     int ret;
     cout << "欢迎来到书店！" << endl;
@@ -109,11 +109,11 @@ void ViewModel::Login()
     Vars::CurrentUser = newMember;
 }
 
-int ViewModel::MainMenu()
+int Presenter::MainMenu()
 {
     cout << "接下来要做什么？" << endl;
     cout << endl;
-    cout << "1. 显示订单" << endl;
+    cout << "1. 显示购物车" << endl;
     cout << "2. 显示当前用户信息" << endl;
     cout << "3. 浏览图书" << endl;
     cout << "4. 立即下单" << endl;

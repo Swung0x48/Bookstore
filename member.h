@@ -31,7 +31,7 @@ public:
 
     bool operator< (const member& rhs) const  // overload operator< to make std::map happy.
     {
-        return this->_name < rhs._name;
+        return this->_id < rhs._id;
     }
 
 };

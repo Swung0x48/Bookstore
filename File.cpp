@@ -4,7 +4,7 @@
 
 #include "File.h"
 #include "Vars.h"
-#include "ViewModel.h"
+#include "Presenter.h"
 #include "book.h"
 #include "member.h"
 #include <iostream>
@@ -46,7 +46,7 @@ void File::saveReceipt()
     ofs << "-\tRECEIPT\t-" << endl;
     for (auto order: Vars::orderList)
     {
-        ofs << ViewModel::translate(true, order) << endl;
+        ofs << Presenter::translate(true, order) << endl;
     }
     ofs << "-\tEnd of this receipt\t-" << endl;
     ofs.close();
@@ -80,7 +80,7 @@ void File::saveMemberList()
     ofs.open(memberListPath, ios::out | ios::trunc);
     for (auto member: Vars::memberList)
     {
-        ofs << ViewModel::translate(false, member);
+        ofs << Presenter::translate(false, member);
     }
 //    ofs << 0 << endl;
     ofs.close();
@@ -91,7 +91,7 @@ void File::saveBookList()
     ofs.open(bookListPath, ios::out | ios::trunc);
     for (auto book: Vars::bookList)
     {
-        ofs << ViewModel::translate(false, book) << endl;
+        ofs << Presenter::translate(false, book) << endl;
     }
 //    ofs << 0 << endl;
     ofs.close();
