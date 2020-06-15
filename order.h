@@ -16,7 +16,7 @@ private:
     member& _buyer;
     map<book, int> _orderList;  // book, count: int
 public:
-    order(member& buyer, int orderId = randGen::getRandom()) : _buyer(buyer), _orderId(orderId) {}
+    explicit order(member& buyer, int orderId = randGen::getRandom()) : _buyer(buyer), _orderId(orderId) {}
     int getOrderId() { return _orderId; }
     member& getBuyer() { return _buyer; }
     map<book, int>& getOrderList() { return _orderList; }
